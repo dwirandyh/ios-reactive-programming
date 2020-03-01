@@ -10,6 +10,8 @@ import UIKit
 
 class TrendingViewController: UIViewController {
 
+    @IBOutlet weak var repositoryTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
