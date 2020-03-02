@@ -15,7 +15,9 @@ class TrendingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.repositoryTableView.delegate = self
+        self.repositoryTableView.dataSource = self
+        self.repositoryTableView.reloadData()
     }
     
 
@@ -29,4 +31,29 @@ class TrendingViewController: UIViewController {
     }
     */
 
+}
+
+extension TrendingViewController : UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "trendingRepoCell", for: indexPath) as? TrendingRepoCell else { return UITableViewCell() }
+        
+        let repo = Repo(image: UIImage(named: "searchIconLarge")!, name: "SWIFT", description: "Apple Programming Language", numberOfForks: 36, language: "Swift", numberOfContributors: 572, repoUrl: "www.github.com")
+        cell.configureCell(repo: repo)
+        return cell
+    }
+    
+    
+}
+
+extension TrendingViewController : UITableViewDelegate {
+    
 }

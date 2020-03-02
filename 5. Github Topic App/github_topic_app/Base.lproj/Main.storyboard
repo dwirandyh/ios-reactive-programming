@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="101" width="375" height="628"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="400" id="NBC-5G-Vgx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trendingRepoCell" rowHeight="400" id="NBC-5G-Vgx" customClass="TrendingRepoCell" customModule="github_topic_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NBC-5G-Vgx" id="10L-T2-2wO">
@@ -162,6 +162,16 @@
                                                 <constraint firstAttribute="trailing" secondItem="fs7-oP-abk" secondAttribute="trailing" constant="20" symbolic="YES" id="o4O-ax-h6I"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="backView" destination="fs7-oP-abk" id="r2Z-DK-sLA"/>
+                                            <outlet property="contributorLabel" destination="xlJ-43-Hyt" id="V3d-XE-JB0"/>
+                                            <outlet property="languageLabel" destination="L7H-mP-kpy" id="uDd-Yh-MIl"/>
+                                            <outlet property="numberOfForksLabel" destination="5bd-Hw-EHG" id="bUo-KW-gCC"/>
+                                            <outlet property="repoDescriptionLabel" destination="epC-LU-EVR" id="7TX-3h-aww"/>
+                                            <outlet property="repoImageView" destination="CD9-Eg-bBa" id="yv7-Bf-nE5"/>
+                                            <outlet property="repoNameLabel" destination="7TA-rB-iSC" id="P94-ZP-ToY"/>
+                                            <outlet property="viewReadMeButton" destination="50E-Ag-p7c" id="z2n-58-6dP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
