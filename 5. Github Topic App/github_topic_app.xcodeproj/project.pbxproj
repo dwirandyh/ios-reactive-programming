@@ -15,6 +15,8 @@
 		8D90DE32240BC0D6004300B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D90DE30240BC0D6004300B9 /* LaunchScreen.storyboard */; };
 		8D90DE3D240BC0D6004300B9 /* github_topic_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90DE3C240BC0D6004300B9 /* github_topic_appTests.swift */; };
 		8D90DE48240BC0D6004300B9 /* github_topic_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90DE47240BC0D6004300B9 /* github_topic_appUITests.swift */; };
+		8DE28338240FEC7D0017B267 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE28337240FEC7D0017B267 /* Constants.swift */; };
+		8DE2833A240FEDE40017B267 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE28339240FEDE40017B267 /* DownloadService.swift */; };
 		8DEC5A83240BF7A7009BAC97 /* RoundedBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC5A82240BF7A7009BAC97 /* RoundedBorderButton.swift */; };
 		8DEC5A85240CB211009BAC97 /* RoundedBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC5A84240CB211009BAC97 /* RoundedBorderTextField.swift */; };
 		8DEC5A87240CB81D009BAC97 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC5A86240CB81D009BAC97 /* Repo.swift */; };
@@ -61,6 +63,8 @@
 		8D90DE43240BC0D6004300B9 /* github_topic_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = github_topic_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D90DE47240BC0D6004300B9 /* github_topic_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = github_topic_appUITests.swift; sourceTree = "<group>"; };
 		8D90DE49240BC0D6004300B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DE28337240FEC7D0017B267 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8DE28339240FEDE40017B267 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		8DEC5A82240BF7A7009BAC97 /* RoundedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderButton.swift; sourceTree = "<group>"; };
 		8DEC5A84240CB211009BAC97 /* RoundedBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderTextField.swift; sourceTree = "<group>"; };
 		8DEC5A86240CB81D009BAC97 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		8D90DE24240BC0D5004300B9 /* github_topic_app */ = {
 			isa = PBXGroup;
 			children = (
+				8DE28336240FEC5D0017B267 /* Services */,
+				8DE28335240FEC4C0017B267 /* Utilities */,
 				8D90DE57240BCAF9004300B9 /* Controller */,
 				8D90DE55240BCAE9004300B9 /* Model */,
 				8D90DE56240BCAF4004300B9 /* View */,
@@ -192,6 +198,22 @@
 				8DEFC919240BD48000B4EDD4 /* SearchViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8DE28335240FEC4C0017B267 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8DE28337240FEC7D0017B267 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8DE28336240FEC5D0017B267 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8DE28339240FEDE40017B267 /* DownloadService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		CC6A0A61C6DC0C0493D71CB3 /* Pods */ = {
@@ -451,9 +473,11 @@
 				8DEC5A89240CBA07009BAC97 /* TrendingRepoCell.swift in Sources */,
 				8DEC5A85240CB211009BAC97 /* RoundedBorderTextField.swift in Sources */,
 				8D90DE28240BC0D5004300B9 /* SceneDelegate.swift in Sources */,
+				8DE2833A240FEDE40017B267 /* DownloadService.swift in Sources */,
 				8DEFC91A240BD48000B4EDD4 /* SearchViewController.swift in Sources */,
 				8DEC5A83240BF7A7009BAC97 /* RoundedBorderButton.swift in Sources */,
 				8DEFC918240BD46A00B4EDD4 /* TrendingViewController.swift in Sources */,
+				8DE28338240FEC7D0017B267 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
