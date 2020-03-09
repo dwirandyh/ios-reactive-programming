@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 
 class DownloadService {
     static let instance = DownloadService()
@@ -21,7 +22,26 @@ class DownloadService {
             guard let repoDictionaryArray = json["items"] as? [Dictionary<String, Any>] else { return }
             for repo in repoDictionaryArray {
                 if trendingReposArray.count <= 10 {
-                    trendingReposArray.append(repo)
+                    guard  let name = repo["name"] as? String,
+                        let description = repo["description"] as? String,
+                        let numberOfForks = repo["forks_count"] as? Int,
+                        let repoUrl = repo["html_url"] as? String,
+                        let contributorUrl = repo["contributors_url"] as? String,
+                        let ownerDict = repo["owner"] as? Dictionary<String, Any>,
+                        let avatarUrl = ownerDict["avatar_url"] as? String
+                        else { return }
+                    
+                    let repoDictionary : Dictionary<String, Any> = [
+                        "name" : name,
+                        "description": description,
+                        "forks_count": numberOfForks,
+                        "language": "",
+                        "html_url": repoUrl,
+                        "contributors_url": contributorUrl,
+                        "avatar_url": avatarUrl
+                    ]
+                    
+                    trendingReposArray.append(repoDictionary )
                 } else {
                     break;
                 }
@@ -35,24 +55,58 @@ class DownloadService {
         self.downloadTrendingReposDictArray { (repoDictionary) in
             var trendingRepos : [Repo] = [Repo]()
             for dict in repoDictionary {
-                trendingRepos.append(self.mapToRepo(fromDictionary: dict))
+                self.mapToRepo(fromDictionary: dict) { (repo) in
+                    if trendingRepos.count < 9 {
+                        trendingRepos.append(repo)
+                    } else {
+                        let sortedRepos = trendingRepos.sorted { (repo1, repo2) -> Bool in
+                            if repo1.numberOfForks > repo2.numberOfForks {
+                                return true
+                            } else {
+                                return false
+                            }
+                        }
+                        completion(sortedRepos)
+                    }
+                }
             }
-            
-            completion(trendingRepos)
         }
     }
     
-    private func mapToRepo(fromDictionary dict: Dictionary<String, Any>) -> Repo {
-//        let avatarUrl = dict["avatar_url"] as! String
+    private func mapToRepo(fromDictionary dict: Dictionary<String, Any>, completion: @escaping (_ repo: Repo) -> Void){
+        let avatarUrl = dict["avatar_url"] as! String
+        let contributorsUrl = dict["contributors_url"] as! String
         let name = dict["name"] as! String
         let description = dict["description"] as! String
         let numberOfForks = dict["forks_count"] as! Int
-        let language = dict["language"] as? String
-        let numberOfContributors = 0
+        let language = dict["language"] as! String
         let repoUrl = dict["html_url"] as! String
         
-        let repo = Repo(image: UIImage(named: "searchIconLarge")!, name: name, description: description, numberOfForks: numberOfForks, language: language ?? "", numberOfContributors: numberOfContributors, repoUrl: repoUrl)
+//        let avatarUrl = "https://www.freeiconspng.com/uploads/no-image-icon-10.png"
+    
         
-        return repo
+        self.downloadImageFor(avatarUrl: avatarUrl) { (avatarImage) in
+            self.downloadContributorsDataFor(contributorsUrl: contributorsUrl) { (returnedContributors) in
+                let repo = Repo(image: avatarImage, name: name, description: description, numberOfForks: numberOfForks, language: language, numberOfContributors: returnedContributors, repoUrl: repoUrl)
+                completion(repo)
+            }
+        }
+    }
+    
+    func downloadImageFor(avatarUrl: String, completion: @escaping (_ image: UIImage) -> ()) {
+        Alamofire.request(avatarUrl).responseImage { (imageResponse) in
+            guard let image = imageResponse.result.value else { return}
+            completion(image)
+        }
+    }
+    
+    func downloadContributorsDataFor(contributorsUrl: String, completion: @escaping (_ contributors: Int) -> ()){
+        Alamofire.request(contributorsUrl).responseJSON { (response) in
+            guard let json = response.result.value as? [Dictionary<String, Any>] else { return }
+            if !json.isEmpty {
+                let contributors = json.count
+                completion(contributors)
+            }
+        }
     }
 }
