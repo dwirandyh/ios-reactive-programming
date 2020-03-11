@@ -15,6 +15,8 @@
 		8D90DE32240BC0D6004300B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D90DE30240BC0D6004300B9 /* LaunchScreen.storyboard */; };
 		8D90DE3D240BC0D6004300B9 /* github_topic_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90DE3C240BC0D6004300B9 /* github_topic_appTests.swift */; };
 		8D90DE48240BC0D6004300B9 /* github_topic_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90DE47240BC0D6004300B9 /* github_topic_appUITests.swift */; };
+		8DB8E03F24193870008C1536 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8E03E24193870008C1536 /* SearchCell.swift */; };
+		8DBF07BC241946E100A0D74F /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF07BB241946E100A0D74F /* UIViewControllerExt.swift */; };
 		8DE28338240FEC7D0017B267 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE28337240FEC7D0017B267 /* Constants.swift */; };
 		8DE2833A240FEDE40017B267 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE28339240FEDE40017B267 /* DownloadService.swift */; };
 		8DEC5A83240BF7A7009BAC97 /* RoundedBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC5A82240BF7A7009BAC97 /* RoundedBorderButton.swift */; };
@@ -63,6 +65,8 @@
 		8D90DE43240BC0D6004300B9 /* github_topic_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = github_topic_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D90DE47240BC0D6004300B9 /* github_topic_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = github_topic_appUITests.swift; sourceTree = "<group>"; };
 		8D90DE49240BC0D6004300B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DB8E03E24193870008C1536 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		8DBF07BB241946E100A0D74F /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		8DE28337240FEC7D0017B267 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8DE28339240FEDE40017B267 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		8DEC5A82240BF7A7009BAC97 /* RoundedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderButton.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		8D90DE24240BC0D5004300B9 /* github_topic_app */ = {
 			isa = PBXGroup;
 			children = (
+				8DBF07BA241946CC00A0D74F /* Extensions */,
 				8DE28336240FEC5D0017B267 /* Services */,
 				8DE28335240FEC4C0017B267 /* Utilities */,
 				8D90DE57240BCAF9004300B9 /* Controller */,
@@ -187,6 +192,7 @@
 				8DEC5A82240BF7A7009BAC97 /* RoundedBorderButton.swift */,
 				8DEC5A84240CB211009BAC97 /* RoundedBorderTextField.swift */,
 				8DEC5A88240CBA07009BAC97 /* TrendingRepoCell.swift */,
+				8DB8E03E24193870008C1536 /* SearchCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +204,14 @@
 				8DEFC919240BD48000B4EDD4 /* SearchViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8DBF07BA241946CC00A0D74F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF07BB241946E100A0D74F /* UIViewControllerExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8DE28335240FEC4C0017B267 /* Utilities */ = {
@@ -469,6 +483,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DEC5A87240CB81D009BAC97 /* Repo.swift in Sources */,
+				8DB8E03F24193870008C1536 /* SearchCell.swift in Sources */,
+				8DBF07BC241946E100A0D74F /* UIViewControllerExt.swift in Sources */,
 				8D90DE26240BC0D5004300B9 /* AppDelegate.swift in Sources */,
 				8DEC5A89240CBA07009BAC97 /* TrendingRepoCell.swift in Sources */,
 				8DEC5A85240CB211009BAC97 /* RoundedBorderTextField.swift in Sources */,

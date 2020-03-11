@@ -44,6 +44,7 @@ class TrendingViewController: UIViewController {
     }
 }
 
+// WITHOUT RX COCOA
 //extension TrendingViewController : UITableViewDataSource {
 //
 //    func numberOfSections(in tableView: UITableView) -> Int {

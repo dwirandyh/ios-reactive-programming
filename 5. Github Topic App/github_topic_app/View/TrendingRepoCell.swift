@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TrendingRepoCell: UITableViewCell {
 
@@ -21,6 +23,8 @@ class TrendingRepoCell: UITableViewCell {
     @IBOutlet weak var viewReadMeButton: RoundedBorderButton!
     
     private var repoUrl: String?
+    
+    let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +49,11 @@ class TrendingRepoCell: UITableViewCell {
         self.numberOfForksLabel.text = String(repo.numberOfForks)
         
         repoUrl = repo.repoUrl
+        
+        guard let url = repoUrl else { return }
+        self.viewReadMeButton.rx.tap.subscribe(onNext:{
+            self.window?.rootViewController?.presentSFSafariVCFor(url: url)
+        }).disposed(by: self.disposeBag)
     }
 
 }
